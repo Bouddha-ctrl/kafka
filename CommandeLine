@@ -1,0 +1,18 @@
+// For windows : in kafka file
+
+//start zookeeper, then
+bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties -e ALLOW_ANONYMOUS_LOGIN=yes bitnami/zookeeper:latest
+bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+//topic creation
+bin\windows\kafka-topics.bat --create --topic Tuto1 --bootstrap-server localhost:9092
+bin\windows\kafka-topics.bat --create --topic Tuto2 --bootstrap-server localhost:9092
+
+// Producer
+bin\windows\kafka-console-producer.bat --broker-list  localhost:9092 --topic Tuto1
+
+// Consumer
+bin\windows\kafka-console-consumer.bat --bootstrap-server  localhost:9092 --topic output
+
+
