@@ -1,6 +1,6 @@
-package receiver;
+package com.example.demo.receiver;
 
-import dto.Log;
+import com.example.demo.dto.Log;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +19,7 @@ import java.util.Map;
 @Configuration
 public class KafkaReceiverConfig {
 
-    @Value(value = "${kafka.bootstrapAddress:kafka:9092}") // Adresse du serveur Kafka pour envoyer les messages (il est possible de le configurer via application.properties)
+    @Value(value = "${kafka.bootstrapAddress:kafka}") // Adresse du serveur Kafka pour envoyer les messages (il est possible de le configurer via application.properties)
     private String bootstrapAddress;
 
     private static final String groupId = "Tutorial"; // Définition du groupe ex: Tutorial

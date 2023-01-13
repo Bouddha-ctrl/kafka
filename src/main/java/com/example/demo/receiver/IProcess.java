@@ -1,6 +1,6 @@
-package receiver;
+package com.example.demo.receiver;
 
-import dto.Log;
+import com.example.demo.dto.Log;
 
 public interface IProcess {
     public void execute(String info, Log log);

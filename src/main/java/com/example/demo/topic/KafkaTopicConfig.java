@@ -1,4 +1,4 @@
-package topic;
+package com.example.demo.topic;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.springframework.beans.factory.annotation.Value;

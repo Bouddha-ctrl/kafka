@@ -1,20 +1,23 @@
-package dto;
+package com.example.demo.dto;
 
 public class Log {
 
     private String date;
     private String code;
     private String protocol;
-    private String message;
+    private String website;
+    private String path;
 
     public Log(){
 
     }
 
-    public Log(String date,String code,String protocol){
+    public Log(String date,String code,String protocol, String website, String path){
         this.protocol = protocol;
         this.date = date;
         this.code = code;
+        this.website = website;
+        this.path = path;
     }
     public String getCode() {
         return code;
@@ -24,8 +27,12 @@ public class Log {
         return date;
     }
 
-    public String getMessage() {
-        return message;
+    public String getPath() {
+        return path;
+    }
+
+    public String getWebsite() {
+        return website;
     }
 
     public String getProtocole() {
@@ -40,8 +47,12 @@ public class Log {
         this.date = date;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public void setProtocole(String protocole) {
@@ -50,6 +61,6 @@ public class Log {
 
     @Override
     public String toString() {
-        return "{Date :"+date+", Protocole :"+protocol+", Code"+code+"}";
+        return "{Date :"+date+", Protocole :"+protocol+", siteweb :"+website+", Path:"+path+", Code"+code+"}";
     }
 }

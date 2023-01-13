@@ -1,11 +1,11 @@
-package receiver.implementation;
+package com.example.demo.receiver.implementation;
 
-import dto.Log;
+import com.example.demo.dto.Log;
+import com.example.demo.receiver.IProcess;
+import com.example.demo.receiver.IReceiver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import receiver.IProcess;
-import receiver.IReceiver;
 
 @Service
 public class KafkaReceiver implements IReceiver {

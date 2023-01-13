@@ -1,6 +1,6 @@
-package sender;
+package com.example.demo.sender;
 
-import dto.Log;
+import com.example.demo.dto.Log;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +16,7 @@ import java.util.Map;
 @Configuration
 public class KafkaSenderConfig {
 
-    @Value(value = "${kafka.bootstrapAddress:kafka:9092}") // Adresse du serveur Kafka (il est possible de le configurer via application.properties)
+    @Value(value = "${kafka.bootstrapAddress:kafka}") // Adresse du serveur Kafka (il est possible de le configurer via application.properties)
     private String bootstrapAddress;
 
     @Bean

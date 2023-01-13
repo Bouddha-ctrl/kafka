@@ -1,6 +1,6 @@
-package receiver;
+package com.example.demo.receiver;
 
-import dto.Log;
+import com.example.demo.dto.Log;
 
 public interface IReceiver {
     public void listen(String topicName, Log log);
