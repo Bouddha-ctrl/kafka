@@ -61,6 +61,6 @@ public class Log {
 
     @Override
     public String toString() {
-        return "{Date :"+date+", Protocole :"+protocol+", siteweb :"+website+", Path:"+path+", Code"+code+"}";
+        return "{Date :"+date+", Protocole :"+protocol+", siteweb :"+website+", Path:"+path+", Code :"+code+"}";
     }
 }

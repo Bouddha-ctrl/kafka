@@ -14,18 +14,19 @@ public class ProcessExample implements IProcess {
 
     @Autowired
     private ISender sender;
-    List<Log> logs = new ArrayList<Log>();
+    List<String> logs = new ArrayList<String>();
     /**
      * Exécuter le traitement
      * @param topicName
      *              Nom du Topic
      * @param log
-     *              objet person
+     *              objet log
      */
     @Override
-    public void execute(String topicName, Log log) {
+    public void execute(String topicName, String log) {
+
         logs.add(log);
-        sender.send("output",log);
-        System.out.println("Message reçu: topicName="+topicName +", log=" + log);
+
+        sender.send("output","Preceded : "+log);
     }
 }

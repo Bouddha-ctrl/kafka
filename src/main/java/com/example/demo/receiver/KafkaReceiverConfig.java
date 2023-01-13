@@ -25,17 +25,30 @@ public class KafkaReceiverConfig {
     private static final String groupId = "Tutorial"; // Définition du groupe ex: Tutorial
 
     @Bean
-    public ConsumerFactory<String, Log> receiverFactory() {
+    public ConsumerFactory<String, String> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,bootstrapAddress); // Configuration de l'adresse du serveur
-        props.put(ConsumerConfig.GROUP_ID_CONFIG,groupId);// Configuration du groupe
-        return new DefaultKafkaConsumerFactory<>(props,new StringDeserializer(),new JsonDeserializer<>(Log.class));
+        props.put(
+                ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
+                bootstrapAddress);
+        props.put(
+                ConsumerConfig.GROUP_ID_CONFIG,
+                groupId);
+        props.put(
+                ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
+                StringDeserializer.class);
+        props.put(
+                ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
+                StringDeserializer.class);
+        return new DefaultKafkaConsumerFactory<>(props);
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Log> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, Log> factory =new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(receiverFactory());
+    public ConcurrentKafkaListenerContainerFactory<String, String>
+    kafkaListenerContainerFactory() {
+
+        ConcurrentKafkaListenerContainerFactory<String, String> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
         return factory;
     }
 }

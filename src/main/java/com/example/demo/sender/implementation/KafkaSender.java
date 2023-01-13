@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class KafkaSender implements ISender {
 
     @Autowired
-    private KafkaTemplate<String, Log> kafkaTemplate;
+    private KafkaTemplate<String, String> kafkaTemplate;
 
     /**
      * Permet d'envoyer un message (Log) dans un topic
@@ -22,7 +22,7 @@ public class KafkaSender implements ISender {
      *                      Objet à envoyer
      */
     @Override
-    public void send(String topicName, Log log) {
+    public void send(String topicName, String log) {
         new NewTopic(topicName, 1, (short) 1);
         kafkaTemplate.send(topicName, log);
     }
